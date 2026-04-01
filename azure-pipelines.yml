@@ -1,0 +1,22 @@
+# Node.js - Testes Unitarios
+# Repositorio: larissasantossilvapt-collab/M13
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Instalar Node.js'
+
+- script: |
+    npm install
+  displayName: 'Instalar dependencias'
+
+- script: |
+    npm test
+  displayName: 'Correr testes unitarios'
